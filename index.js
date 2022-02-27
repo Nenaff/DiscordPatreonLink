@@ -24,13 +24,13 @@ client.on('messageCreate', async (message) => {
         case "+paytest": // paid command
             let isPatron = await patreon.isPremium(author.id); 
             if (isPatron) {
-                message.reply(`You're a premium user ! :tada: :tada:\nYour data: \`\`\`${patron.paidUsers[author.id]}\`\`\`\``);
+                message.reply(`You're a premium user ! :tada: :tada:\nYour Patron user ID: \`\`\`${patreon.findDiscordPatron(author.id).userId}\`\`\``);
             } else {
-                message.reply({ embeds: [embed(false, "This command is for premium users only.", "Souscrivez un abonnement sur notre Patreon, liez votre compte Discord, puis utilisez `+verify`.")]});
+                message.reply({ embeds: [embed(false, "This command is for premium users only.", "Sign up for a subscription on our Patreon, link your Discord account, then use `+verify`.")]});
             }
             break;
         case "+clear":
-            patron.paidUsers = {}
+            patron.paidUsers = []
             message.reply('Emptied premium user list.');
             break;
     }
@@ -44,4 +44,4 @@ function embed(success, title, description) {
     .setTimestamp()
 }
 
-client.login('Your token');
+client.login('NDE1NTk5OTg3NTMyMTAzNjgx.Wox_pg.PcyRfVYIhZMFZjkKr63P_aFpYb8');
