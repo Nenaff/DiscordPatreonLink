@@ -12,4 +12,5 @@ Link Discord.js with Patreon to allow use of certain commands to premium users o
 - Head over to https://www.patreon.com/portal/registration/register-clients and create a new client<br/>
 - Grab "ID client" and "Secret client"<br/>
 <br/>
-This project is making use of a custom fork from https://www.npmjs.com/package/patreon-discord by miramallows (https://github.com/miramallows)
+Every files under the folder patreon-discord comes from https://www.npmjs.com/package/patreon-discord by miramallows (https://github.com/miramallows)<br/>
+It couldn't be used with NPM as some changes were necessary.
