@@ -13,4 +13,6 @@ Link Discord.js with Patreon to allow use of certain commands to premium users o
 - Grab "ID client" and "Secret client"<br/>
 <br/>
 Every files under the folder patreon-discord comes from https://www.npmjs.com/package/patreon-discord by miramallows (https://github.com/miramallows)<br/>
-It couldn't be used with NPM as some changes were necessary.
+It couldn't be used with NPM as some changes were necessary.<br/>
+<br/>
+Project realized for Nidev.fr
