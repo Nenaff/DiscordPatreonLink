@@ -14,6 +14,31 @@ class Campaign {
         if ( !campaignId ) return console.error("Missing campaign ID in Campaign constructor")
         this.patreonToken = patreonToken
         this.campaignId = campaignId
+        this.tiers = {};
+    }
+
+    async grabTiers() {
+        let nextLink = `https://www.patreon.com/api/oauth2/v2/campaigns/${this.campaignId}?include=tiers&fields%5Btier%5D=title`
+        let tiers = {};
+
+        const response = await (
+            await fetch(nextLink, {
+            method: 'GET',
+            headers: { Authorization: 'Bearer ' + this.patreonToken }
+        })
+                .catch(err => console.error(err))
+        )
+            .json()
+
+        if(response.errors) return console.error(response.errors)
+
+        for (const value of Object.values(response.included)) {
+            if (value.type == "tier") {
+                tiers[value.id] = {title: value.attributes.title}
+            }
+        }
+
+        this.tiers = tiers;
     }
 
     async _scrapeData () {
